@@ -1,189 +1,178 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import MenuBurger from "@/components/Header/MenuBurger";
 import { NAVLINKS } from "@/constants/Links";
-import { TiSocialFacebook } from "react-icons/ti";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FiInstagram } from "react-icons/fi";
+import { TiSocialFacebook } from "react-icons/ti";
 import { Logo } from "./Logo";
 
 export default function Nav() {
-    const [showMenu, setShowMenu] = useState(false);
-    const pathname = usePathname();
+  const [showMenu, setShowMenu] = useState(false);
+  const pathname = usePathname();
 
-    useEffect(() => {
+  useEffect(() => {
+    setShowMenu(false);
+  }, [pathname]);
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showMenu]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const menu = document.querySelector(".mobile-menu");
+      const burger = document.querySelector(".menu-burger-button");
+
+      if (
+        showMenu &&
+        menu &&
+        burger &&
+        !menu.contains(target) &&
+        !burger.contains(target)
+      ) {
         setShowMenu(false);
-    }, [pathname]);
-    useEffect(() => {
-        if (showMenu) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [showMenu]);
+      }
+    };
 
-    useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            const menu = document.querySelector(".mobile-menu");
-            const burger = document.querySelector(".menu-burger-button");
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [showMenu]);
 
-            if (
-                showMenu &&
-                menu &&
-                burger &&
-                !menu.contains(target) &&
-                !burger.contains(target)
-            ) {
-                setShowMenu(false);
-            }
-        };
+  return (
+    <>
+      {showMenu && (
+        <div
+          className="anim-opacity fixed inset-0 z-[40] backdrop-blur-md lg:hidden"
+          onClick={() => setShowMenu(false)}
+          aria-hidden="true"
+        />
+      )}
+      <header
+        className={`top-0 z-50 w-full text-gray-600 backdrop-blur-md transition-all duration-300`}
+      >
+        <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
+          <Link href="/" aria-label="strona-główna">
+            <Logo h={27} w={27} />
+          </Link>
 
-        document.addEventListener("click", handleClickOutside);
-        return () => document.removeEventListener("click", handleClickOutside);
-    }, [showMenu]);
+          <MenuBurger
+            handleShowMenu={() => setShowMenu(!showMenu)}
+            showMenu={showMenu}
+          />
 
-    return (
-        <>
-            {showMenu && (
-                <div
-                    className="fixed inset-0 anim-opacity bg-black/30 backdrop-blur-md z-[40] lg:hidden"
-                    onClick={() => setShowMenu(false)}
-                    aria-hidden="true"
-                />
-            )}
-            <header
-                className={`top-0 z-50 backdrop-blur-md transition-all duration-300 w-full text-black `}
-            >
-                <div className="mx-auto flex items-center justify-between p-4 max-w-screen-2xl">
-                    <Logo />
-                    <MenuBurger
-                        handleShowMenu={() => setShowMenu(!showMenu)}
-                        showMenu={showMenu}
-                    />
-
-                    <div
-                        className={`mobile-menu fixed left-0 top-0 z-[50] h-screen w-[280px] bg-[#6e2a23] text-white shadow-xl transform transition-transform duration-300 ease-in-out lg:hidden ${
-                            showMenu ? "translate-x-0" : "-translate-x-full"
-                        }`}
+          <div
+            className={`mobile-menu fixed top-0 left-0 z-[50] h-screen w-[280px] transform bg-white text-gray-600 shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
+              showMenu ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <div className="mt-auto mb-10 flex gap-5 p-6">
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-2xl text-gray-600 transition-all hover:text-gray-900"
+              >
+                <TiSocialFacebook />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-xl text-gray-600 transition-all hover:text-gray-900"
+              >
+                <FiInstagram />
+                <span className="sr-only">Instagram</span>
+              </Link>
+            </div>
+            <div className="flex h-full flex-col px-6">
+              <nav aria-label="Menu mobilne">
+                <ul className="flex flex-col space-y-6">
+                  {NAVLINKS.map((link, index) => (
+                    <li
+                      key={link.label}
+                      className={`transition-all duration-300 ${
+                        showMenu ? "opacity-100" : "opacity-0"
+                      }`}
+                      style={{
+                        transitionDelay: `${index * 65}ms`,
+                      }}
                     >
-                        <div className="flex gap-5 mt-auto mb-10 p-6">
-                            <Link
-                                href="/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Facebook"
-                                className="text-white hover:text-[#ffcbc4] transition-all text-2xl"
-                            >
-                                <TiSocialFacebook />
-                                <span className="sr-only">Facebook</span>
-                            </Link>
-                            <Link
-                                href="/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                                className="text-white hover:text-[#ffcbc4] transition-all text-xl"
-                            >
-                                <FiInstagram />
-                                <span className="sr-only">Instagram</span>
-                            </Link>
-                        </div>
-                        <div className="flex flex-col h-full px-6">
-                            <nav aria-label="Menu mobilne">
-                                <ul className="flex flex-col space-y-6">
-                                    {NAVLINKS.map((link, index) => (
-                                        <li
-                                            key={link.label}
-                                            className={`transition-all duration-300 ${
-                                                showMenu
-                                                    ? "opacity-100"
-                                                    : "opacity-0"
-                                            }`}
-                                            style={{
-                                                transitionDelay: `${
-                                                    index * 60
-                                                }ms`,
-                                            }}
-                                        >
-                                            <Link
-                                                href={link.href}
-                                                onClick={() =>
-                                                    setShowMenu(false)
-                                                }
-                                                className={`block py-1 text-lg uppercase font-medium transition-all ${
-                                                    pathname === link.href
-                                                        ? "text-white font-bold"
-                                                        : "text-gray-200"
-                                                }`}
-                                                aria-current={
-                                                    pathname === link.href
-                                                        ? "page"
-                                                        : undefined
-                                                }
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                      <Link
+                        href={link.href}
+                        onClick={() => setShowMenu(false)}
+                        className={`block py-1 text-lg font-medium uppercase transition-all ${
+                          pathname === link.href
+                            ? "font-bold text-gray-900"
+                            : "text-gray-500"
+                        }`}
+                        aria-current={
+                          pathname === link.href ? "page" : undefined
+                        }
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
 
-                    <nav className="hidden lg:block">
-                        <ul className="flex items-center justify-center xl:space-x-4 space-x-1 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-                            {NAVLINKS.map((link) => (
-                                <li key={link.label} className="relative">
-                                    <Link
-                                        href={link.href}
-                                        className={`block w-max py-4 px-1 uppercase lg:text-sm transition-all hover:text-brand-navHover ${
-                                            pathname === link.href
-                                                ? "text-brand-nav font-bold"
-                                                : ""
-                                        }`}
-                                        aria-current={
-                                            pathname === link.href
-                                                ? "page"
-                                                : undefined
-                                        }
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
+          <nav className="hidden lg:block">
+            <ul className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 xl:space-x-4">
+              {NAVLINKS.map((link) => (
+                <li key={link.label} className="relative">
+                  <Link
+                    href={link.href}
+                    className={`block w-max px-1 py-4 font-medium uppercase transition-all lg:text-xs ${
+                      pathname === link.href ? "text-orange-400" : ""
+                    }`}
+                    aria-current={pathname === link.href ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-                    <div className="hidden lg:flex items-center gap-4">
-                        <Link
-                            href="/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook"
-                            className="hover:text-brand-navHover transition-all text-2xl"
-                        >
-                            <TiSocialFacebook />
-                            <span className="sr-only">Facebook</span>
-                        </Link>
-                        <Link
-                            href="/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            className="hover:text-brand-navHover transition-all text-xl"
-                        >
-                            <FiInstagram />
-                            <span className="sr-only">Instagram</span>
-                        </Link>
-                    </div>
-                </div>
-            </header>
-        </>
-    );
+          <div className="hidden items-center gap-4 lg:flex">
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-2xl transition-all"
+            >
+              <TiSocialFacebook />
+              <span className="sr-only">Facebook</span>
+            </Link>
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-xl transition-all"
+            >
+              <FiInstagram />
+              <span className="sr-only">Instagram</span>
+            </Link>
+          </div>
+        </div>
+      </header>
+    </>
+  );
 }

@@ -1,10 +1,15 @@
+import Footer from "@/components/Footer";
+import { GradientBg } from "@/components/GradientBg";
 import Nav from "@/components/Header/Nav";
+import Messenger from "@/components/Messenger";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -25,10 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={`${geistMono.variable} antialiased`}>
-        <div className="fixed -z-10 top-0 left-0 right-0 bg-gradient-to-bl from-blue-100 via-gray-50 to-pink-100 w-full h-screen" />
+      <body
+        className={`flex min-h-screen w-full touch-auto flex-col overflow-y-auto antialiased ${geistSans.variable}`}
+      >
+        <GradientBg />
         <Nav />
-        {children}
+        <main className="relative min-h-[90vh] w-full flex-1 overflow-x-hidden">
+          {children}
+        </main>
+        <Messenger />
+        <ScrollToTopButton />
+        <Footer />
       </body>
     </html>
   );
