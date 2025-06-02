@@ -82,7 +82,7 @@ export const SERVICESLINKS = [
     icon: SearchCheck,
   },
   {
-    label: "Optymalizacja Core Web Vitals",
+    label: "Core Web Vitals",
     desc: "Poprawa szybkości i wydajności strony w Lighthouse",
     href: "/core-web-vitals",
     icon: Gauge,
@@ -101,7 +101,7 @@ export const SERVICESLINKS = [
   },
   {
     label: "Integracje z API",
-    desc: "Łączenie strony z zewnętrznymi usługami (np. Cloudinary, MailerLite)",
+    desc: "Łączenie strony z zewnętrznymi usługami (np. Cloudinary, Instagram)",
     href: "/integracje-api",
     icon: CloudCog,
   },
