@@ -10,18 +10,10 @@
   --brand-light: #ce5f2b;
 }
 
-.bg {
-  background-color: var(--bg);
-}
-.bg-light {
-  background-color: var(--bg-light);
-}
-
-.fg-light {
-  color: var(--fg-light);
-}
-.fg-light-hover:hover {
-  color: var(--fg-light-hover);
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
 }
 
 @theme inline {
@@ -37,10 +29,30 @@
   }
 } */
 
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
+.bg {
+  background-color: var(--bg);
+}
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+.fg-light {
+  color: var(--fg-light);
+}
+.fg-light-hover:hover {
+  color: var(--fg-light-hover);
+}
+
+.anim-opacity {
+  animation: anim-opacity 0.4s both 0.1s;
+}
+@keyframes anim-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hide-scrollbar {

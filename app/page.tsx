@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative container mx-auto overflow-hidden px-6 py-20">
+      <section className="anim-opacity relative container mx-auto overflow-hidden px-6 py-20">
         <div className="relative z-10 mx-auto max-w-5xl text-center">
           <div className="mb-8">
             <span className="bg mb-6 inline-block rounded-full border border-blue-200/50 px-6 py-2 text-sm font-semibold text-blue-600 shadow-xl">
