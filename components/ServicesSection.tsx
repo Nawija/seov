@@ -1,6 +1,4 @@
-"use client";
-
-import { NAVLINKS } from "@/constants/Links";
+import { SERVICESLINKS } from "@/constants/Links";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
@@ -20,16 +18,14 @@ export default function ServicesSection() {
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5; // opór
+    const walk = (x - startX) * 1.5;
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const endDrag = () => {
-    setIsDragging(false);
-  };
+  const endDrag = () => setIsDragging(false);
 
   return (
-    <section className="bg mx-auto py-12">
+    <section className="bg-white/70 mx-auto py-12">
       <h2 className="mb-6 text-center text-2xl font-semibold">
         Usługi freelancer:
       </h2>
@@ -45,8 +41,8 @@ export default function ServicesSection() {
           scrollPaddingLeft: "50%",
         }}
       >
-        <div className="w-0 shrink-0 lg:w-[20%] py-4" aria-hidden />
-        {NAVLINKS.map(({ href, label }) => (
+        <div className="w-0 shrink-0 py-4 lg:w-[20%]" aria-hidden />
+        {SERVICESLINKS.map(({ href, label, desc, icon: Icon }) => (
           <Link
             href={href}
             key={label}
@@ -54,15 +50,14 @@ export default function ServicesSection() {
               if (isDragging) e.preventDefault();
             }}
             draggable="false"
-            className="bg relative w-64 shrink-0 snap-none border border-blue-100 space-y-2 overflow-hidden rounded-2xl shadow-lg transition hover:shadow-xl"
+            className="bg relative flex w-64 shrink-0 snap-none flex-col items-center justify-center space-y-2 overflow-hidden rounded-2xl border border-blue-100 shadow-lg transition hover:shadow-xl"
           >
-            <div className="relative h-40 w-full">
-              <div className="flex h-full w-full items-center justify-center">
-                Brak obrazka
-              </div>
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+              {Icon && <Icon className="h-8 w-8 text-blue-700" />}
             </div>
             <div className="flex flex-col items-center justify-center pb-2 text-center">
-              <h3 className="text-lg font-semibold">{label}</h3>
+              <h2 className="text-lg font-semibold">{label}</h2>
+              <h3 className="px-4 text-sm text-gray-600">{desc}</h3>
             </div>
           </Link>
         ))}
