@@ -6,7 +6,7 @@ export default function MenuBurger({
   handleShowMenu,
   showMenu,
 }: MenuBurgerProps) {
-  const burgerClass = "h-[2px] w-5 duration-300 rounded bg-orange-400";
+  const burgerClass = "h-[2px] w-5 duration-300 rounded bg-orange-300";
 
   return (
     <button

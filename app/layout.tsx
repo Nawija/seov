@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import { GradientBg } from "@/components/GradientBg";
-import Nav from "@/components/Header/Nav";
+import Nav from "@/components/header/Nav";
 import Messenger from "@/components/Messenger";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import type { Metadata } from "next";
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`${roboto.variable} flex min-h-screen w-full touch-auto flex-col overflow-y-auto font-sans antialiased `}
+        className={`${roboto.variable} flex min-h-screen w-full touch-auto flex-col overflow-y-auto font-sans antialiased`}
       >
         <GradientBg />
         <Nav />

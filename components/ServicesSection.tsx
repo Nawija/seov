@@ -29,9 +29,9 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="mx-auto bg-white py-12">
+    <section className="bg mx-auto py-12">
       <h2 className="mb-6 text-center text-2xl font-semibold">
-        Oferty fotografii:
+        Usługi freelancer:
       </h2>
 
       <div
@@ -45,7 +45,7 @@ export default function ServicesSection() {
           scrollPaddingLeft: "50%",
         }}
       >
-        <div className="w-0 shrink-0 lg:w-[20%]" aria-hidden />
+        <div className="w-0 shrink-0 lg:w-[20%] py-4" aria-hidden />
         {NAVLINKS.map(({ href, label }) => (
           <Link
             href={href}
@@ -54,16 +54,15 @@ export default function ServicesSection() {
               if (isDragging) e.preventDefault();
             }}
             draggable="false"
-            className="relative w-64 shrink-0 snap-none space-y-2 overflow-hidden rounded-sm bg-gradient-to-br from-gray-100 to-stone-200 shadow-lg transition hover:shadow-xl"
+            className="bg relative w-64 shrink-0 snap-none border border-blue-100 space-y-2 overflow-hidden rounded-2xl shadow-lg transition hover:shadow-xl"
           >
             <div className="relative h-40 w-full">
-              <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-400">
+              <div className="flex h-full w-full items-center justify-center">
                 Brak obrazka
               </div>
             </div>
             <div className="flex flex-col items-center justify-center pb-2 text-center">
               <h3 className="text-lg font-semibold">{label}</h3>
-              <p className="text-sm text-gray-700">Zobacz szczegóły</p>
             </div>
           </Link>
         ))}

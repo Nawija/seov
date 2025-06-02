@@ -1,6 +1,6 @@
 "use client";
 
-import MenuBurger from "@/components/Header/MenuBurger";
+import MenuBurger from "@/components/header/MenuBurger";
 import { NAVLINKS } from "@/constants/Links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -58,7 +58,7 @@ export default function Nav() {
         />
       )}
       <header
-        className={`top-0 z-50 w-full text-gray-600 backdrop-blur-md transition-all duration-300`}
+        className={`top-0 z-50 w-full backdrop-blur-md transition-all duration-300`}
       >
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
           <Link href="/" aria-label="strona-główna">
@@ -71,7 +71,7 @@ export default function Nav() {
           />
 
           <div
-            className={`mobile-menu fixed top-0 left-0 z-[50] h-screen w-[280px] transform bg-white text-gray-600 shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
+            className={`mobile-menu fixed top-0 left-0 z-[50] h-screen w-[280px] transform bg-white/90 text-gray-600 shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
               showMenu ? "translate-x-0" : "-translate-x-full"
             }`}
           >
@@ -132,13 +132,13 @@ export default function Nav() {
           </div>
 
           <nav className="hidden lg:block">
-            <ul className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 xl:space-x-4">
+            <ul className="bg px-4 border border-blue-100 rounded-2xl py-1 absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 xl:space-x-4">
               {NAVLINKS.map((link) => (
                 <li key={link.label} className="relative">
                   <Link
                     href={link.href}
-                    className={`block w-max px-1 py-4 font-semibold uppercase transition-all lg:text-[11px] ${
-                      pathname === link.href ? "text-gray-900" : ""
+                    className={`block w-max px-2 py-2 font-semibold uppercase transition-all lg:text-xs ${
+                      pathname === link.href ? "" : ""
                     }`}
                     aria-current={pathname === link.href ? "page" : undefined}
                   >
