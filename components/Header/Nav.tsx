@@ -62,7 +62,7 @@ export default function Nav() {
       >
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
           <Link href="/" aria-label="strona-główna">
-            <Logo h={27} w={27} />
+            <Logo h={25} w={25} />
           </Link>
 
           <MenuBurger
@@ -137,8 +137,8 @@ export default function Nav() {
                 <li key={link.label} className="relative">
                   <Link
                     href={link.href}
-                    className={`block w-max px-1 py-4 font-medium uppercase transition-all lg:text-xs ${
-                      pathname === link.href ? "text-orange-400" : ""
+                    className={`block w-max px-1 py-4 font-semibold uppercase transition-all lg:text-[11px] ${
+                      pathname === link.href ? "text-gray-900" : ""
                     }`}
                     aria-current={pathname === link.href ? "page" : undefined}
                   >

@@ -6,7 +6,7 @@ export default function MenuBurger({
   handleShowMenu,
   showMenu,
 }: MenuBurgerProps) {
-  const burgerClass = "h-[2px] w-5 duration-300 rounded";
+  const burgerClass = "h-[2px] w-5 duration-300 rounded bg-orange-400";
 
   return (
     <button
@@ -18,20 +18,20 @@ export default function MenuBurger({
       <div
         className={`${burgerClass} transform transition-all ${
           showMenu
-            ? "bg-black translate-y-1.5 rotate-[405deg]"
-            : "bg-blue-500"
+            ? "translate-y-1.5 rotate-[405deg]"
+            : ""
         }`}
       />
       <div
         className={`${burgerClass} transition-all ${
-          showMenu ? "bg-black opacity-0" : "bg-blue-500"
+          showMenu ? "opacity-0" : ""
         }`}
       />
       <div
         className={`${burgerClass} transform transition-all ${
           showMenu
-            ? "bg-black -translate-y-2 -rotate-45"
-            : "bg-blue-500"
+            ? "-translate-y-2.5 -rotate-45"
+            : ""
         }`}
       />
     </button>

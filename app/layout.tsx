@@ -4,13 +4,13 @@ import Nav from "@/components/Header/Nav";
 import Messenger from "@/components/Messenger";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  weight: ["400", "500", "600", "700"],
+const roboto = Roboto({
+  variable: "--font-roboto-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`flex min-h-screen w-full touch-auto flex-col overflow-y-auto antialiased ${geistSans.variable}`}
+        className={`${roboto.variable} flex min-h-screen w-full touch-auto flex-col overflow-y-auto font-sans antialiased `}
       >
         <GradientBg />
         <Nav />

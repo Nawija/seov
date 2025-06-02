@@ -10,7 +10,7 @@ export function Logo({ h, w }: { h: number; w: number }) {
         height={h || 27}
         width={w || 27}
       />
-      <p className="text-gray-800 font-medium">Seovileo</p>
+      <p className="text-gray-600 font-semibold text-sm">Seovileo</p>
     </div>
   );
 }
