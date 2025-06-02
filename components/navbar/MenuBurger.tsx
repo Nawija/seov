@@ -2,10 +2,7 @@
 
 import { MenuBurgerProps } from "@/types/navbar";
 
-export default function MenuBurger({
-  handleShowMenu,
-  showMenu,
-}: MenuBurgerProps) {
+export function MenuBurger({ handleShowMenu, showMenu }: MenuBurgerProps) {
   const burgerClass = "h-[2px] w-5 duration-300 rounded bg-orange-300";
 
   return (
@@ -13,13 +10,11 @@ export default function MenuBurger({
       onClick={handleShowMenu}
       aria-label={showMenu ? "Zamknij menu" : "Otwórz menu"}
       aria-expanded={showMenu}
-      className="z-[999] flex ml-auto flex-col items-center justify-center space-y-1.5 p-1 lg:hidden"
+      className="z-[999] ml-auto flex flex-col items-center justify-center space-y-1.5 p-1 lg:hidden"
     >
       <div
         className={`${burgerClass} transform transition-all ${
-          showMenu
-            ? "translate-y-1.5 rotate-[405deg]"
-            : ""
+          showMenu ? "translate-y-1.5 rotate-[405deg]" : ""
         }`}
       />
       <div
@@ -29,9 +24,7 @@ export default function MenuBurger({
       />
       <div
         className={`${burgerClass} transform transition-all ${
-          showMenu
-            ? "-translate-y-2.5 -rotate-45"
-            : ""
+          showMenu ? "-translate-y-2.5 -rotate-45" : ""
         }`}
       />
     </button>

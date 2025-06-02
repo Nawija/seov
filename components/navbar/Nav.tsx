@@ -1,6 +1,5 @@
 "use client";
 
-import MenuBurger from "@/components/header/MenuBurger";
 import { NAVLINKS } from "@/constants/Links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import { FiInstagram } from "react-icons/fi";
 import { TiSocialFacebook } from "react-icons/ti";
 import { Logo } from "./Logo";
+import { MenuBurger } from "./MenuBurger";
 
 export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
@@ -132,7 +132,7 @@ export default function Nav() {
           </div>
 
           <nav className="hidden lg:block">
-            <ul className="bg px-4 border border-blue-100 rounded-2xl py-1 absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 xl:space-x-4">
+            <ul className="bg absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 rounded-2xl border border-blue-100 px-4 py-1 xl:space-x-4">
               {NAVLINKS.map((link) => (
                 <li key={link.label} className="relative">
                   <Link
