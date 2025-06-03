@@ -58,7 +58,7 @@ export default function Nav() {
         />
       )}
       <header
-        className={`top-0 z-50 w-full backdrop-blur-md transition-all duration-300`}
+        className={`top-0 z-50 w-full backdrop-blur-md transition-all duration-300 p-2`}
       >
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
           <Link href="/" aria-label="strona-główna">
