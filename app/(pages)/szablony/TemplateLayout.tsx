@@ -1,10 +1,10 @@
 "use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Eye, Filter, Search, Star } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import { LiveWebsitePreview } from "./LiveWebsitePreview";
 
-// Types
 interface Template {
   id: number;
   name: string;
@@ -257,9 +257,6 @@ export function TemplateLayout() {
   const [selectedBusiness, setSelectedBusiness] = useState<string>("wszystkie");
   const [sortBy, setSortBy] = useState<string>("popularne");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [showPreview, setShowPreview] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState("");
-  const [previewTitle, setPreviewTitle] = useState("");
 
   const filteredTemplates: Template[] = templates
     .filter((template: Template) => {
@@ -413,18 +410,15 @@ export function TemplateLayout() {
                   </div>
 
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        setPreviewUrl(template.url);
-                        setPreviewTitle(template.name);
-                        setShowPreview(true);
-                      }}
+                    <Link
+                      href={template.url}
+                      target="_blank"
                       className="group flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-gray-700 transition-colors hover:bg-gray-200"
                     >
                       <Eye className="h-4 w-4" />
                       Demo
-                    </button>
-                    <button className="bg-brand-main hover:bg-brand-main/90 group flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-white transition-colors">
+                    </Link>
+                    <button className="bg-brand-main hover:bg-brand-main/90 group flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-white transition-colors">
                       Zamów
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
@@ -435,13 +429,6 @@ export function TemplateLayout() {
           </AnimatePresence>
         </motion.div>
       </div>
-      {showPreview && (
-        <LiveWebsitePreview
-          url={previewUrl}
-          title={previewTitle}
-          onClose={() => setShowPreview(false)}
-        />
-      )}
     </div>
   );
 }
