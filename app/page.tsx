@@ -36,7 +36,7 @@ export default function Home() {
       {/* Services Section */}
       <ServicesSection />
 
-      <div className="h-screen w-full" />
+     
     </>
   );
 }
