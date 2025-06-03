@@ -357,7 +357,7 @@ export function TemplateLayout() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="overflow-hidden rounded-xl border bg-white/80"
+                className="flex h-full flex-col overflow-hidden rounded-xl border bg-white/80"
               >
                 {/* Image */}
                 <div className="relative">
@@ -375,7 +375,7 @@ export function TemplateLayout() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="flex h-full flex-col p-6">
                   <h3 className="text-foreground mb-3 text-xl font-semibold">
                     {template.name}
                   </h3>
@@ -395,7 +395,7 @@ export function TemplateLayout() {
                     ))}
                   </div>
 
-                  <div className="mb-4 flex items-center justify-between">
+                  <div className="mt-auto mb-4 flex items-center justify-between">
                     <span className="text-brand-main text-2xl font-bold">
                       {template.price}zł
                     </span>
@@ -409,7 +409,7 @@ export function TemplateLayout() {
                     </div>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="mt-auto flex justify-between gap-2">
                     <Link
                       href={template.url}
                       target="_blank"
