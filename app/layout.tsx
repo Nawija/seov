@@ -1,12 +1,11 @@
 import Footer from "@/components/Footer";
 import { GradientBg } from "@/components/GradientBg";
 import Messenger from "@/components/Messenger";
+import Nav from "@/components/navbar/Nav";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/navbar/Nav";
-
 
 const roboto = Roboto({
   variable: "--font-roboto-sans",

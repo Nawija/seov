@@ -58,11 +58,11 @@ export default function Nav() {
         />
       )}
       <header
-        className={`top-0 z-50 w-full backdrop-blur-md transition-all duration-300 p-2`}
+        className={`top-0 z-50 w-full p-2 backdrop-blur-md transition-all duration-300`}
       >
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
           <Link href="/" aria-label="strona-główna">
-            <Logo h={25} w={25} />
+            <Logo h={33} w={33} />
           </Link>
 
           <MenuBurger
@@ -71,17 +71,17 @@ export default function Nav() {
           />
 
           <div
-            className={`mobile-menu fixed top-0 left-0 z-[50] h-screen w-[280px] transform bg-white/90 text-gray-600 shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
+            className={`mobile-menu bg-background fixed top-0 left-0 z-[50] h-screen w-[280px] transform text-gray-600 shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
               showMenu ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <div className="mt-auto mb-10 flex gap-5 p-6">
+            <div className="mt-auto mb-10 flex items-center justify-end gap-5 p-6">
               <Link
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-2xl text-gray-600 transition-all hover:text-gray-900"
+                className="text-3xl text-gray-500 transition-all hover:text-brand-main"
               >
                 <TiSocialFacebook />
                 <span className="sr-only">Facebook</span>
@@ -91,7 +91,7 @@ export default function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-xl text-gray-600 transition-all hover:text-gray-900"
+                className="text-2xl text-gray-500 transition-all hover:text-brand-main"
               >
                 <FiInstagram />
                 <span className="sr-only">Instagram</span>
@@ -113,10 +113,10 @@ export default function Nav() {
                       <Link
                         href={link.href}
                         onClick={() => setShowMenu(false)}
-                        className={`block py-1 text-lg font-medium uppercase transition-all ${
+                        className={`block py-1 text-lg font-light uppercase transition-all ${
                           pathname === link.href
-                            ? "font-bold text-gray-900"
-                            : "text-gray-500"
+                            ? "text-brand-main font-semibold"
+                            : ""
                         }`}
                         aria-current={
                           pathname === link.href ? "page" : undefined
@@ -132,13 +132,13 @@ export default function Nav() {
           </div>
 
           <nav className="hidden lg:block">
-            <ul className="bg absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 rounded-2xl border border-blue-100 px-4 py-1 xl:space-x-4">
+            <ul className="bg-background absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center space-x-1 rounded-xl border px-4 py-1 xl:space-x-4">
               {NAVLINKS.map((link) => (
                 <li key={link.label} className="relative">
                   <Link
                     href={link.href}
-                    className={`block w-max px-2 py-2 font-semibold uppercase transition-all lg:text-xs ${
-                      pathname === link.href ? "" : ""
+                    className={`hover:text-brand-main-light block w-max px-2 py-2 font-semibold uppercase transition-all lg:text-xs ${
+                      pathname === link.href ? "text-brand-main" : ""
                     }`}
                     aria-current={pathname === link.href ? "page" : undefined}
                   >

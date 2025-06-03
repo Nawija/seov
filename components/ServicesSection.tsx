@@ -25,7 +25,7 @@ export default function ServicesSection() {
   const endDrag = () => setIsDragging(false);
 
   return (
-    <section className="mx-auto bg-white/70 py-12">
+    <section className="mx-auto bg-white py-12">
       <h2 className="mb-6 text-center text-2xl font-semibold">
         Usługi freelancer:
       </h2>
