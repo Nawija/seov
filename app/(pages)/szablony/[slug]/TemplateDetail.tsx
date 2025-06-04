@@ -264,7 +264,7 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
                   </div>
 
                   <blockquote className="rounded-r-xl border-l-4 border-blue-500 bg-blue-50/50 p-6 text-lg text-gray-700 italic">
-                    Ten szablon pomógł nam zwiększyć konwersję o 40% - CEO
+                    Ten szablon pomógł nam zwiększyc konwersję o 40% - CEO
                     TechStart
                   </blockquote>
                   {content && <MarkdownContent content={content} />}
