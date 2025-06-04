@@ -21,7 +21,7 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
     <div className="relative mb-12 flex-1">
       <motion.div
         layout
-        className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
       >
         <AnimatePresence>
           {templates.map((template: Template) => (
@@ -92,9 +92,13 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
                   </div>
                 </div>
 
-                <div className="flex mt-5 w-full items-center justify-center gap-4">
-                  <Link href={template.url} target="_blank" className="group w-full">
-                    <SecondBtn className="flex items-center justify-center gap-2 w-full">
+                <div className="mt-5 flex w-full items-center justify-center gap-4">
+                  <Link
+                    href={template.url}
+                    target="_blank"
+                    className="group w-full"
+                  >
+                    <SecondBtn className="flex w-full items-center justify-center gap-2 h-12">
                       <Eye className="h-4 w-4" />
                       Demo
                     </SecondBtn>
@@ -104,7 +108,7 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
                     href={`/szablony/${template.slug || template.id}`}
                     className="group w-full"
                   >
-                    <MainBtn className="flex items-center justify-center gap-2 w-full text-nowrap">
+                    <MainBtn className="flex w-full items-center justify-center gap-2 h-12 text-nowrap">
                       Zobacz więcej
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </MainBtn>

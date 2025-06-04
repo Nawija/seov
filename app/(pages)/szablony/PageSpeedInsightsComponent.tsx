@@ -100,7 +100,7 @@ const PageSpeedInsights = ({
 }) => {
   return (
     <div
-      className={`grid grid-cols-2 justify-items-center gap-6 rounded-xl border border-gray-200/50 bg-white/60 p-4 backdrop-blur-sm md:grid-cols-4 ${className}`}
+      className={`grid grid-cols-2 justify-items-center w-full gap-6 rounded-xl border bg-white p-4 md:grid-cols-4 ${className}`}
     >
       <CircularProgress score={performance} label="Wydajność" size={80} />
       <CircularProgress

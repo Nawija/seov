@@ -91,14 +91,6 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
                 </button>
               </div>
             </div>
-            <div className="mt-6">
-              <PageSpeedInsights
-                performance={95}
-                accessibility={92}
-                bestPractices={100}
-                seo={100}
-              />
-            </div>
           </div>
 
           {/* Content Section */}
@@ -167,11 +159,25 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
             {/* Security Badge */}
             <div className="flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-gray-600">
               <Shield className="h-4 w-4 text-green-600" />
-              Bezpieczna • 30-dniowa gwarancja zwrotu
+              Wsparcie techniczne przez 12 miesięcy
             </div>
           </div>
         </div>
 
+        <div className="order-1 mb-6 flex w-full items-stretch justify-center gap-4">
+          <PageSpeedInsights
+            performance={95}
+            accessibility={92}
+            bestPractices={100}
+            seo={100}
+          />
+          <div className="space-y-4 rounded-xl border bg-white p-8">
+            <h2 className="text-lg">Raport szybkosci strony internetowej</h2>
+            <Link href="/" target="_blank">
+              <SecondBtn className="w-max p-4">Zobacz raport google</SecondBtn>
+            </Link>
+          </div>
+        </div>
         {/* Tab Navigation */}
         <div className="mb-8 snap-none snap-x scroll-auto rounded-xl border border-gray-200/50 bg-white shadow-sm">
           <div className="hide-scrollbar flex cursor-grab snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth border-b border-gray-200 select-none active:cursor-grabbing">
