@@ -1,10 +1,11 @@
 //app/szablony/components/TemplateGrid.tsx
 "use client";
 
+import type { Template } from "@/types/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Eye, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import type { Template } from "@/types/types";
 
 interface TemplateGridProps {
   templates: Template[];
@@ -29,7 +30,9 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
             >
               {/* Image */}
               <div className="relative">
-                <img
+                <Image
+                  height={300}
+                  width={400}
                   src={template.image}
                   alt={template.name}
                   className="h-48 w-full object-cover"
@@ -37,9 +40,7 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
                 />
                 <div className="absolute top-4 right-4 flex items-center gap-1 rounded-full bg-white/90 px-3 py-1">
                   <Star className="h-4 w-4 fill-current text-yellow-500" />
-                  <span className="text-sm font-medium">
-                    {template.rating}
-                  </span>
+                  <span className="text-sm font-medium">{template.rating}</span>
                 </div>
               </div>
 
