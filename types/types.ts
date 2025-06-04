@@ -6,7 +6,10 @@ export interface TemplateStats {
 }
 
 export interface Template {
+  id: number;
   name: string;
+  slug: string;
+  url: string;
   description: string;
   image: string;
   rating: number;
