@@ -1,9 +1,9 @@
 //app/szablony/components/TemplatesClient.tsx
 "use client";
 
-import { useState } from "react";
-import type { SortOption, Template } from "@/types/types";
 import { MobileSearch } from "@/components/MobileSearch";
+import type { SortOption, Template } from "@/types/types";
+import { useState } from "react";
 import { TemplateFilters } from "./TemplateFilters";
 import { TemplateGrid } from "./TemplateGrid";
 
@@ -51,7 +51,7 @@ export function TemplatesClient({ initialTemplates }: TemplatesClientProps) {
     });
 
   return (
-    <div className="relative flex flex-col gap-4 px-6 md:flex-row max-w-[2000px] mx-auto">
+    <div className="anim-opacity relative mx-auto flex max-w-[2000px] flex-col gap-4 px-6 md:flex-row">
       <MobileSearch
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}

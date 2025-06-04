@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface TemplateDetailProps {
@@ -30,14 +31,14 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50">
+    <div className="anim-opacity min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50">
       {/* Sticky Navigation */}
 
       <div className="container mx-auto px-4 py-4">
-        <button className="group inline-flex items-center gap-2">
+        <Link href="/szablony" className="group inline-flex items-center gap-2">
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span className="font-medium">Powrót do szablonów</span>
-        </button>
+        </Link>
       </div>
 
       <div className="container mx-auto px-4 py-8">
