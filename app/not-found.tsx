@@ -10,13 +10,13 @@ export default function NotFound() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex h-[70vh] flex-col items-center justify-center px-4 text-center"
+      transition={{ duration: 0.3 }}
+      className="flex h-[60vh] flex-col items-center justify-center px-4 text-center"
     >
       <motion.div
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.1 }}
         className="mb-6"
       >
         <CloudOff className="text-brand-main h-16 w-16" />
@@ -26,7 +26,7 @@ export default function NotFound() {
         className="mb-4 text-4xl font-bold sm:text-5xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.3 }}
       >
         Error 404 🤔
       </motion.h1>
