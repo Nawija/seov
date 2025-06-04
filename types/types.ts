@@ -21,6 +21,7 @@ export interface Template {
   stats: {
     downloads: number;
     satisfaction: number;
+    updates: string;
   };
   features: string[];
 }
