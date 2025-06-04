@@ -1,15 +1,35 @@
 //app/szablony/types.ts
+export interface TemplateStats {
+  downloads: string;
+  satisfaction: string;
+  updates?: string;
+}
+
 export interface Template {
-  id: number;
   name: string;
-  url: string;
+  description: string;
+  image: string;
+  rating: number;
+  reviews: number;
   category: string;
   business: string;
   price: number;
-  rating: number;
-  description: string;
+  originalPrice: number;
+  stats: {
+    downloads: number;
+    satisfaction: number;
+  };
   features: string[];
-  image: string;
+}
+
+export interface TemplateData {
+  template: Template;
+  content: string;
+}
+
+export interface TemplateDetailProps {
+  template: Template;
+  content: string; // Markdown content
 }
 
 export interface TemplateFiltersProps {
@@ -17,8 +37,8 @@ export interface TemplateFiltersProps {
   setSelectedCategory: (category: string) => void;
   selectedBusiness: string;
   setSelectedBusiness: (business: string) => void;
- sortBy: SortOption; 
-  setSortBy: (sortBy: SortOption) => void; 
+  sortBy: SortOption;
+  setSortBy: (sortBy: SortOption) => void;
   searchTerm: string;
   setSearchTerm: (searchTerm: string) => void;
 }

@@ -1,11 +1,11 @@
 ---
 id: 2
-name: "Nowoczeny landing page - Nazoltej.pl"
-slug: "nazoltej"
-url: "https://nazoltej.pl/"
+name: "Fotograf - Nazoltej.pl"
+slug: "fotograf"
+url: "https://jarekolszewski.pl/"
 category: "Landing Page"
 business: "Biznes"
-price: 3999
+price: 1900
 originalPrice: 3999
 rating: 4.9
 reviews: 127
@@ -17,7 +17,7 @@ features:
   - "Kod HTML/CSS"
   - "Dokumentacja"
   - "Wsparcie techniczne"
-image: "/images/templates/2.png"
+image: "/images/templates/1.png"
 stats:
   downloads: "2.3k"
   satisfaction: "98%"

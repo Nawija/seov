@@ -26,7 +26,7 @@ export function TemplateFilters({
   setSearchTerm,
 }: TemplateFiltersProps) {
   return (
-    <div className="mx-auto w-full md:w-80">
+    <div className="mx-auto w-full">
       <div className="sticky top-6 rounded-xl border bg-white/80 p-6">
         <div className="mb-6 flex items-center gap-2">
           <Filter className="text-brand-main h-5 w-5" />

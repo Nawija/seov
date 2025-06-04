@@ -51,7 +51,7 @@ export function TemplatesClient({ initialTemplates }: TemplatesClientProps) {
     });
 
   return (
-    <div className="relative flex flex-col gap-4 px-6 md:flex-row">
+    <div className="relative flex flex-col gap-4 px-6 md:flex-row max-w-[2000px] mx-auto">
       <MobileSearch
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -76,7 +76,7 @@ export function TemplatesClient({ initialTemplates }: TemplatesClientProps) {
       )}
 
       {/* Filters - desktop view */}
-      <div className="hidden w-full max-w-xs md:block">
+      <div className="hidden md:block">
         <TemplateFilters
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
