@@ -19,6 +19,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import PageSpeedInsights from "../PageSpeedInsightsComponent";
 
 interface TemplateDetailProps {
   template: Template;
@@ -31,23 +32,22 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="anim-opacity min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50">
+    <div className="anim-opacity mx-auto max-w-7xl">
       {/* Sticky Navigation */}
 
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 pb-4">
         <Link href="/szablony" className="group inline-flex items-center gap-2">
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          <span className="font-medium">Powrót do szablonów</span>
+          <span className="text-xs font-medium">Powrót do szablonów</span>
         </Link>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4">
         {/* Hero Section */}
-        <div className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-2 xl:grid-cols-3">
           {/* Image Section with Enhanced UI */}
-          <div className="group relative h-max">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tl from-blue-300 to-purple-400 opacity-20 blur transition-opacity group-hover:opacity-30" />
-            <div className="relative overflow-hidden rounded-2xl bg-white p-2 shadow-2xl">
+          <div className="group relative h-max xl:col-span-2">
+            <div className="relative overflow-hidden rounded-xl bg-white/60 p-2 shadow-2xl backdrop-blur-sm">
               <div className="relative w-full overflow-hidden rounded-xl">
                 <Image
                   height={400}
@@ -91,6 +91,14 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
                 </button>
               </div>
             </div>
+            <div className="mt-6">
+              <PageSpeedInsights
+                performance={95}
+                accessibility={92}
+                bestPractices={100}
+                seo={100}
+              />
+            </div>
           </div>
 
           {/* Content Section */}
@@ -110,21 +118,18 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
 
             {/* Title */}
             <div>
-              <h1 className="mb-4 text-4xl leading-tight font-bold text-gray-900 lg:text-5xl">
+              <h1 className="mb-4 text-3xl leading-tight font-bold text-gray-900 lg:text-4xl">
                 {template.name}
               </h1>
-              <p className="pr-6 text-xl leading-relaxed text-gray-600">
+              <p className="pr-6 text-lg leading-relaxed text-gray-600">
                 {template.description}
               </p>
             </div>
 
             {/* Pricing */}
-            <div className="flex items-center gap-4">
-              <div className="text-4xl font-bold text-blue-600">
-                {template.price}zł
-              </div>
+            <div className="flex items-center gap-2">
               {template.originalPrice > template.price && (
-                <div className="text-xl text-gray-400 line-through">
+                <div className="text-xl text-gray-600 line-through">
                   {template.originalPrice}zł
                 </div>
               )}
@@ -139,52 +144,37 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
                   %
                 </div>
               )}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 rounded-xl border border-gray-200/50 bg-white/60 p-4 backdrop-blur-sm">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">
-                  {template.stats.downloads}
-                </div>
-                <div className="text-sm text-gray-600">Pobrań</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">
-                  {template.stats.satisfaction}
-                </div>
-                <div className="text-sm text-gray-600">Zadowolenia</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">6m</div>
-                <div className="text-sm text-gray-600">Wsparcia</div>
+              <div className="text-brand-main text-2xl font-bold">
+                {template.price}zł
               </div>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-col gap-4 sm:flex-row">
-              <MainBtn className="group flex w-full items-center justify-center gap-2 py-5">
+              <MainBtn className="group flex w-full items-center justify-center gap-2 py-4">
                 Kup teraz
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </MainBtn>
 
-              <SecondBtn className="group flex w-full items-center justify-center gap-2 py-5">
-                <Eye className="h-5 w-5" />
-                Sprawdz szybkość
-              </SecondBtn>
+              <Link href={template.url} target="_blank">
+                <SecondBtn className="group flex w-full items-center justify-center gap-2 py-4">
+                  <Eye className="h-5 w-5" />
+                  Zobacz
+                </SecondBtn>
+              </Link>
             </div>
 
             {/* Security Badge */}
             <div className="flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-gray-600">
               <Shield className="h-4 w-4 text-green-600" />
-              Bezpieczna płatność • 30-dniowa gwarancja zwrotu
+              Bezpieczna • 30-dniowa gwarancja zwrotu
             </div>
           </div>
         </div>
 
         {/* Tab Navigation */}
-        <div className="mb-8 overflow-hidden rounded-xl border border-gray-200/50 bg-white shadow-sm">
-          <div className="flex border-b border-gray-200">
+        <div className="mb-8 snap-none snap-x scroll-auto rounded-xl border border-gray-200/50 bg-white shadow-sm">
+          <div className="hide-scrollbar flex cursor-grab snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth border-b border-gray-200 select-none active:cursor-grabbing">
             {[
               { id: "overview", label: "Przegląd", icon: Eye },
               { id: "features", label: "Funkcje", icon: Zap },
@@ -206,7 +196,7 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
             ))}
           </div>
 
-          <div className="p-8">
+          <div className="p-6">
             {selectedTab === "overview" && (
               <div className="prose prose-lg max-w-none">
                 <div className="markdown-content space-y-6">
