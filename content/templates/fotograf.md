@@ -18,10 +18,11 @@ features:
   - "Dokumentacja"
   - "Wsparcie techniczne"
 image: "/images/templates/1.png"
-stats:
-  downloads: "2.3k"
-  satisfaction: "98%"
-  updates: "Regularne"
+pageSpeed:
+  performance: 98
+  accessibility: 100
+  bestPractices: 100
+  seo: 100
 ---
 
 # Profesjonalny Szablon Business Landing

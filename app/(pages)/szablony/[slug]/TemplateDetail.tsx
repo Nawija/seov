@@ -166,10 +166,10 @@ const TemplateDetail = ({ template, content }: TemplateDetailProps) => {
 
         <div className="order-1 mb-6 flex w-full items-stretch justify-center gap-4">
           <PageSpeedInsights
-            performance={95}
-            accessibility={92}
-            bestPractices={100}
-            seo={100}
+            performance={template.pageSpeed.performance}
+            accessibility={template.pageSpeed.accessibility}
+            bestPractices={template.pageSpeed.bestPractices}
+            seo={template.pageSpeed.seo}
           />
           <div className="space-y-4 rounded-xl border bg-white p-8">
             <h2 className="text-lg">Raport szybkosci strony internetowej</h2>

@@ -1,8 +1,9 @@
 //app/szablony/types.ts
-export interface TemplateStats {
-  downloads: string;
-  satisfaction: string;
-  updates?: string;
+export interface TemplatePageSpeed {
+  performance: number;
+  accessibility: number;
+  bestPractices: number;
+  seo: number;
 }
 
 export interface Template {
@@ -18,10 +19,11 @@ export interface Template {
   business: string;
   price: number;
   originalPrice: number;
-  stats: {
-    downloads: number;
-    satisfaction: number;
-    updates: string;
+  pageSpeed: {
+    performance: number;
+    accessibility: number;
+    bestPractices: number;
+    seo: number;
   };
   features: string[];
 }
